@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <title>Rent a Movie</title>
+</head>
+
+<body>
+    <!-- RENT A MOVIE LIST -->
+    <h1>Rent a Movie</h1>
+    <table border="1px solid black">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Salutation</th>
+                <th>Full Name</th>
+                <th>Physical Address</th>
+                <th>Movies Rented</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data['general'] %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <fieldset>
+        <form action="/rent" method="post" id="rent">
+
+            <legend>Rent a Movie :</legend>
+
+            <!-- CUSTOMER -->
+            <datalist id="cust_suggestion">
+                {% for row in data['customers'] %}
+                <option value="{{ row[0] }}">{{ row[1] }}</option>
+                {% endfor %}
+            </datalist>
+            <input autoComplete="on" list="cust_suggestion" name="cust_id" id="cust_id" placeholder="Select ID"
+                style="width: 500px;" />
+
+            <!-- MOVIES -->
+            <datalist id="movie_suggestion">
+                {% for row in data['movies'] %}
+                <option value="{{ row[0] }}">{{ row[1] }}</option>
+                {% endfor %}
+            </datalist>
+            <input autoComplete="on" list="movie_suggestion" name="movie_id" id="movie_id"
+                placeholder="Select Movie Title" style="width: 500px;" />
+
+            <input type="submit" value="Rent">
+        </form>
+    </fieldset>
+
+    <!-- CUSTOMER LIST -->
+    <h1>Customer</h1>
+    <table border="1px solid black">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Salutation</th>
+                <th>Full Name</th>
+                <th>Physical Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data['customers'] %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <fieldset>
+        <form action="/create_new_customer" method="post" id="create_new_customer">
+
+            <fieldset>
+                <legend>Full Name</legend>
+                <p>First Name: <input type="text" name="first_name" id="first_name" placeholder="John" required></p>
+                <p>Last Name: <input type="text" name="last_name" id="last_name" placeholder="Doe" required></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Address</legend>
+                <p>Physical Address: </p>
+                <textarea name="physical_address" id="physical_address" cols="30" rows="5" form="create_new_customer"
+                    placeholder="Nama Jalan No, RT/RW, Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi"
+                    required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Select Salutation :</legend>
+                {% for row in data['salutations'] %}
+                <div>
+                    <input type="radio" id={{row[0]}} name="salutation" value={{row[0]}}>
+                    <label for={{row[0]}}>{{row[1]}}</label>
+                </div>
+                {% endfor %}
+            </fieldset>
+
+            <br>
+
+            <input type="submit" value="Create New Customer">
+        </form>
+    </fieldset>
+
+    <!-- MOVIE LIST -->
+    <h1>Movies</h1>
+    <table border="1px solid black">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Movies</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data['movies'] %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <form action="/add_new_movie" method="post" id="add_new_movie">
+        <fieldset>
+            <legend>Movie :</legend>
+            <p>Movie Title</p>
+            <textarea name="title" id="title" cols="30" rows="5" form="add_new_movie"></textarea>
+
+            <br><br>
+
+            <input type="submit" value="Add New Movie">
+        </fieldset>
+    </form>
+</body>
+
+</html>
