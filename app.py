@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 # Connect to the database
 conn = psycopg2.connect(
-    database="database_development",
-    user="postgres",
-    password="akmalariq",
-    host="localhost",
-    port="5432",
+    database="FILL YOUR OWN",
+    user="FILL YOUR OWN",
+    password="FILL YOUR OWN",
+    host="FILL YOUR OWN",
+    port="FILL YOUR OWN",
 )
 
 # create a cursor
@@ -23,11 +23,11 @@ def index():
 
     # Connect to the database
     conn = psycopg2.connect(
-        database="database_development",
-        user="postgres",
-        password="akmalariq",
-        host="localhost",
-        port="5432",
+        database="FILL YOUR OWN",
+        user="FILL YOUR OWN",
+        password="FILL YOUR OWN",
+        host="FILL YOUR OWN",
+        port="FILL YOUR OWN",
     )
 
     # create a cursor
@@ -92,11 +92,11 @@ def index():
 @app.route("/create_new_customer", methods=["POST"])
 def createNewCustomer():
     conn = psycopg2.connect(
-        database="database_development",
-        user="postgres",
-        password="akmalariq",
-        host="localhost",
-        port="5432",
+        database="FILL YOUR OWN",
+        user="FILL YOUR OWN",
+        password="FILL YOUR OWN",
+        host="FILL YOUR OWN",
+        port="FILL YOUR OWN",
     )
 
     cur = conn.cursor()
@@ -128,11 +128,11 @@ def createNewCustomer():
 @app.route("/rent", methods=["POST"])
 def rent():
     conn = psycopg2.connect(
-        database="database_development",
-        user="postgres",
-        password="akmalariq",
-        host="localhost",
-        port="5432",
+        database="FILL YOUR OWN",
+        user="FILL YOUR OWN",
+        password="FILL YOUR OWN",
+        host="FILL YOUR OWN",
+        port="FILL YOUR OWN",
     )
 
     cur = conn.cursor()
@@ -163,11 +163,11 @@ def rent():
 @app.route("/add_new_movie", methods=["POST"])
 def add_new_movie():
     conn = psycopg2.connect(
-        database="database_development",
-        user="postgres",
-        password="akmalariq",
-        host="localhost",
-        port="5432",
+        database="FILL YOUR OWN",
+        user="FILL YOUR OWN",
+        password="FILL YOUR OWN",
+        host="FILL YOUR OWN",
+        port="FILL YOUR OWN",
     )
 
     cur = conn.cursor()
@@ -192,11 +192,11 @@ def add_new_movie():
 @app.route("/delete", methods=["POST"])
 def delete():
     conn = psycopg2.connect(
-        database="database_development",
-        user="postgres",
-        password="akmalariq",
-        host="localhost",
-        port="5432",
+        database="FILL YOUR OWN",
+        user="FILL YOUR OWN",
+        password="FILL YOUR OWN",
+        host="FILL YOUR OWN",
+        port="FILL YOUR OWN",
     )
     cur = conn.cursor()
 
